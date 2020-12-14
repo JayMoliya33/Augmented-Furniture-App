@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.augmentedfurniture.ui.fragment.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/to_homeFragment"
+            app:destination="@id/nav_home"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.example.augmentedfurniture.ui.fragment.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" >
+
+        <action
+            android:id="@+id/action_SearchFragment_to_HomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:destination="@id/nav_home"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="com.example.augmentedfurniture.ui.fragment.WishlistFragment"
+        android:label="Wishlist"
+        tools:layout="@layout/fragment_wishlist" >
+
+        <action
+            android:id="@+id/action_WishlistFragment_to_HomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:destination="@id/nav_home"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_myaccount"
+        android:name="com.example.augmentedfurniture.ui.fragment.MyAccoutFragment"
+        android:label="My Account"
+        tools:layout="@layout/fragment_my_account" >
+
+        <action
+            android:id="@+id/action_MyAccountFragment_to_HomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:destination="@id/nav_home"/>
+
+    </fragment>
+</navigation>
