@@ -60,12 +60,11 @@ class Utility {
          * Show toast of  message
          */
         fun showToast(mContext: Context?, message: String?) {
-            val toast = Toast.makeText(mContext, message, Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
             //            val view = toast.view
             //            MyDrawableCompat.setColorFilter(view.background, getColor(mContext, R.color.colorBlack))
             //            val text = view.findViewById<TextView>(R.id.message)
             //            text.setTextColor(getColor(mContext, R.color.colorWhite))
-            toast.show()
         }
 
         /**

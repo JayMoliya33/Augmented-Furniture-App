@@ -1,5 +1,8 @@
 package com.example.augmentedfurniture.ui.activity
 
+import android.os.Bundle
+import android.os.PersistableBundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.augmentedfurniture.R
 import com.example.augmentedfurniture.base.BaseActivity
 import com.example.augmentedfurniture.ui.fragment.LoginFragment
@@ -11,8 +14,13 @@ class LoginActivity : BaseActivity() {
         return R.layout.activity_login
     }
 
-    override fun initViews() {
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+        setContentView(R.layout.activity_home)
 
+    }
+
+     override fun initViews() {
         navigateToFragment(LoginFragment(), false, LOGIN_FRAGMENT)
 
     }
@@ -20,15 +28,4 @@ class LoginActivity : BaseActivity() {
     override fun setListeners() {
     }
 
-    /* override fun onBackPressed() {
-
-         if(supportFragmentManager.backStackEntryCount > 1){
-             clearBackStack()
-             popScreen()
-         }
-         else{
-             super.onBackPressed()
-         }
-
-     }*/
 }

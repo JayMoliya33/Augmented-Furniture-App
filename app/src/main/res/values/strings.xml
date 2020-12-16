@@ -32,4 +32,5 @@
     <string name="terms_and_conditions">Terms and Conditions</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="logout">Logout</string>
+    <string name="search">Search</string>
 </resources>

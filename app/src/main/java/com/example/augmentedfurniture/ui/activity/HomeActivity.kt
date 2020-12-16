@@ -1,101 +1,45 @@
 package com.example.augmentedfurniture.ui.activity
 
-import android.content.Intent
-import android.preference.PreferenceManager
-import android.widget.Button
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.example.augmentedfurniture.R
 import com.example.augmentedfurniture.base.BaseActivity
-import com.example.augmentedfurniture.ui.fragment.*
-
-import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity() {
 
-    private lateinit var btnLogout: Button
-
-    lateinit var navigation: NavigationView
-    lateinit var drawer: DrawerLayout
+    lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var navController: NavController
     lateinit var toolbar: androidx.appcompat.widget.Toolbar
-    lateinit var toggle: ActionBarDrawerToggle
 
     override fun getLayoutResId(): Int {
         return R.layout.activity_home
     }
 
     override fun initViews() {
-        navigation = findViewById(R.id.navigation)
-        drawer = findViewById(R.id.drawerLayout)
+
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        toggle = ActionBarDrawerToggle(
-            this, drawer, toolbar, R.string.open, R.string.close
-        )
-        drawer.addDrawerListener(toggle)
-        toggle.syncState()
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.frameLayout, HomeFragment()).commit()
-        toolbar.title = "Home"
+        // Bottom Navigation
+        navController = findNavController(R.id.navHostFragment)
+        bottomNavigationView.setupWithNavController(navController)
 
-        navigation.setNavigationItemSelectedListener(NavigationView.OnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.navHome -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, HomeFragment()).commit()
-                    toolbar.title = "Home"
-                }
-                R.id.navProfile -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, ProfileFragment()).commit()
-                    toolbar.title = "Profile"
-                }
-                R.id.navAboutUs -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, AboutUsFragment()).commit()
-                    toolbar.title = "About us"
-                }
-                R.id.navContactUs -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, ContactUsFragment()).commit()
-                    toolbar.title = "Contact us"
-                }
-                R.id.navOrder -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, OrderFragment()).commit()
-                    toolbar.title = "Order"
-                }
-                R.id.navWishlist -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, WishlistFragment()).commit()
-                    toolbar.title = "Wishlist"
-                }
-                R.id.navTnC -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, TermsCondiFragment()).commit()
-                    toolbar.title = "Terms & Conditions"
-                }
-                R.id.navPrivacy -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, PrivacyPolicyFragment()).commit()
-                    toolbar.title = "Privacy Policy"
-                }
-                R.id.navLogout -> {
+        // Navigation Back Arrow
+        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
 
-                    val sp = PreferenceManager.getDefaultSharedPreferences(this@HomeActivity)
-                    val editor = sp.edit()
-                    editor.putBoolean("booleanIsChecked", false)
-                    editor.apply()
+        NavigationUI.setupWithNavController(navigationView, navController)
+    }
 
-                    startActivity(Intent(this, LoginActivity::class.java))
-                    finish()
-                }
-            }
-            drawer.closeDrawer(GravityCompat.START)
-            true
-        })
+    override fun onSupportNavigateUp(): Boolean {
+
+       return NavigationUI.navigateUp(navController, appBarConfiguration)
     }
 
     override fun onBackPressed() {

@@ -1,6 +1,5 @@
 package com.example.augmentedfurniture.ui.activity
 
-
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
@@ -17,20 +16,16 @@ import com.example.augmentedfurniture.base.BaseActivity
 import com.example.augmentedfurniture.model.OnBoardingData
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import kotlinx.android.synthetic.main.activity_onboarding.*
 
 class OnBoardingActivity : BaseActivity() {
 
-    lateinit var onBoardingViewPagerAdapter: OnBoardingViewPagerAdapter
-    lateinit var tabLayout: TabLayout
-    private lateinit var onBoardingviewPager: ViewPager
-    lateinit var buttonNext: Button
-    lateinit var buttonGetStarted: Button
-    lateinit var tvSkip: TextView
+    private lateinit var onBoardingViewPagerAdapter: OnBoardingViewPagerAdapter
     lateinit var list: ArrayList<OnBoardingData>
-    var btnAnim: Animation? = null
-    var position: Int = 0
-    lateinit var sharedPreferences: SharedPreferences
-    lateinit var editor: SharedPreferences.Editor
+    private var btnAnim: Animation? = null
+    private var position: Int = 0
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
 
     override fun getLayoutResId(): Int {
         return R.layout.activity_onboarding
@@ -39,73 +34,67 @@ class OnBoardingActivity : BaseActivity() {
     @SuppressLint("CommitPrefEdits")
     override fun initViews() {
 
-        onBoardingviewPager = findViewById(R.id.screnViewPager)
-        tabLayout = findViewById(R.id.tab_indicator)
-        buttonNext = findViewById(R.id.btnNext)
-        buttonGetStarted = findViewById(R.id.btnGetStarted)
-        tvSkip = findViewById(R.id.tvSkip)
         btnAnim = AnimationUtils.loadAnimation(applicationContext, R.anim.button_animation)
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         editor = sharedPreferences.edit()
 
         list = ArrayList()
         list.add(
-            OnBoardingData(
-                "Order Your Items...",
-                "Description Of First Title",
-                R.drawable.ic_checklist
-            )
+                OnBoardingData(
+                        "Order Your Items...",
+                        "Description Of First Title",
+                        R.drawable.ic_checklist
+                )
         )
         list.add(
-            OnBoardingData(
-                "Choose Your Itmes",
-                "Description Of Second Title",
-                R.drawable.ic_choose_product
-            )
+                OnBoardingData(
+                        "Choose Your Itmes",
+                        "Description Of Second Title",
+                        R.drawable.ic_choose_product
+                )
         )
         list.add(
-            OnBoardingData(
-                "Choose Your Payment Options",
-                "Description Of Third Title",
-                R.drawable.ic_payment
-            )
+                OnBoardingData(
+                        "Choose Your Payment Options",
+                        "Description Of Third Title",
+                        R.drawable.ic_payment
+                )
         )
         list.add(
-            OnBoardingData(
-                "Locate your shipping Adress",
-                "Description Of Fourth Title",
-                R.drawable.ic_delivery
-            )
+                OnBoardingData(
+                        "Locate your shipping Adress",
+                        "Description Of Fourth Title",
+                        R.drawable.ic_delivery
+                )
         )
         list.add(
-            OnBoardingData(
-                "Enjoy with your products",
-                "Description Of Fifth Title",
-                R.drawable.ic_box_gift
-            )
+                OnBoardingData(
+                        "Enjoy with your products",
+                        "Description Of Fifth Title",
+                        R.drawable.ic_box_gift
+                )
         )
         list.add(
-            OnBoardingData(
-                "Customer Support",
-                "Description Of Sixth Title",
-                R.drawable.ic_helpline
-            )
+                OnBoardingData(
+                        "Customer Support",
+                        "Description Of Sixth Title",
+                        R.drawable.ic_helpline
+                )
         )
 
         onBoardingViewPagerAdapter = OnBoardingViewPagerAdapter(this, list)
-        onBoardingviewPager.adapter = onBoardingViewPagerAdapter
+        screnViewPager.adapter = onBoardingViewPagerAdapter
 
-        tabLayout.setupWithViewPager(onBoardingviewPager)
-
+        tab_indicator.setupWithViewPager(screnViewPager)
 
     }
 
     override fun setListeners() {
-        buttonNext.setOnClickListener {
-            position = onBoardingviewPager.currentItem
+        btnNext.setOnClickListener {
+            position = screnViewPager.currentItem
             if (position < list.size) {
                 position++
-                onBoardingviewPager.setCurrentItem(position)
+                screnViewPager.setCurrentItem(position)
             }
 
             if (position == list.size - 1) {
@@ -114,26 +103,14 @@ class OnBoardingActivity : BaseActivity() {
 
         }
         tvSkip.setOnClickListener {
-
-            editor.putBoolean("onBoardingComplete", true)
-            editor.apply()
-
-            val i = Intent(this, LoginActivity::class.java)
-            startActivity(i)
-            finish()
+            moveToLoginActivity()
         }
 
-        buttonGetStarted.setOnClickListener {
-
-            editor.putBoolean("onBoardingComplete", true)
-            editor.apply()
-
-            val i = Intent(this, LoginActivity::class.java)
-            startActivity(i)
-            finish()
+        btnGetStarted.setOnClickListener {
+            moveToLoginActivity()
         }
 
-        tabLayout.setOnTabSelectedListener(object : OnTabSelectedListener {
+        tab_indicator.setOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 if (tab.position == list.size - 1) {
                     loadScreen()
@@ -149,11 +126,20 @@ class OnBoardingActivity : BaseActivity() {
         })
     }
 
+    private fun moveToLoginActivity() {
+        editor.putBoolean("onBoardingComplete", true)
+        editor.apply()
+
+        val i = Intent(this, LoginActivity::class.java)
+        startActivity(i)
+        finish()
+    }
+
     private fun loadScreen() {
-        buttonNext.visibility = View.GONE
-        tabLayout.visibility = View.GONE
-        buttonGetStarted.visibility = View.VISIBLE
-        buttonGetStarted.animation = btnAnim
+        btnNext.visibility = View.GONE
+        tab_indicator.visibility = View.GONE
+        btnGetStarted.visibility = View.VISIBLE
+        btnGetStarted.animation = btnAnim
     }
 
 }

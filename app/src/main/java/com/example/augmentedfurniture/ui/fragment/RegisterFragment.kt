@@ -9,10 +9,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
+import android.widget.*
 import androidx.core.app.ActivityCompat
 import com.example.augmentedfurniture.R
 import com.example.augmentedfurniture.base.BaseFragment
@@ -150,7 +147,7 @@ class RegisterFragment : BaseFragment() {
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
 
-                                showShortToast("Your account has been created")
+                                Toast.makeText(context, "Your account has been created", Toast.LENGTH_SHORT).show()
                                 registerProgressBar.visibility = View.GONE
 
                                 (activity as LoginActivity).navigateToFragment(
@@ -160,14 +157,14 @@ class RegisterFragment : BaseFragment() {
                                 )
 
                             } else {
-                                showShortToast("Error : " + it.exception.toString())
+                                Toast.makeText(context, "Error : " + it.exception.toString(), Toast.LENGTH_SHORT).show()
                             }
                         }
 
                 } else {
-                    showShortToast("This $phone already exists")
+                    Toast.makeText(context, "This $phone already exists", Toast.LENGTH_SHORT).show()
                     registerProgressBar.visibility = View.GONE
-                    showShortToast("Try again using another phone number or Login")
+                    Toast.makeText(context, "Try again using another phone number or Login", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -196,7 +193,7 @@ class RegisterFragment : BaseFragment() {
             evPassword.error = "Enter Valid Password"
             evPhone.requestFocus()
         } else if (mImageUri == null) {
-            showShortToast("Please Select Profile Image.")
+            Toast.makeText(context, "Please Select Profile Image.", Toast.LENGTH_SHORT).show()
         } else {
             profileImageInfo()
         }
@@ -221,7 +218,7 @@ class RegisterFragment : BaseFragment() {
         val uploadTask = filePath.putFile(mImageUri!!)
 
         uploadTask.addOnFailureListener {
-            showShortToast("Error : $it")
+            Toast.makeText(context, "Error : $it", Toast.LENGTH_SHORT).show()
             registerProgressBar.visibility = View.GONE
         }
             .addOnSuccessListener {

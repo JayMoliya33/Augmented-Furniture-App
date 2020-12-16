@@ -28,21 +28,21 @@ class LoginFragment : BaseFragment() {
         return R.layout.fragment_login
     }
 
-    override fun initView(rootView: View?, savedInstanceState: Bundle?) {
+    override fun initView(view: View?, savedInstanceState: Bundle?) {
 
-        evPhone = rootView!!.findViewById(R.id.evPhone)
-        evPassword = rootView.findViewById(R.id.evPassword)
-        tvForgotPassword = rootView.findViewById(R.id.tvForgotPassword)
-        btnSignIn = rootView.findViewById(R.id.btnSignIn)
-        tvCreateAccount = rootView.findViewById(R.id.tvCreateAccount)
-        loginProgressBar = rootView.findViewById(R.id.loginProgressBar)
+        evPhone = view!!.findViewById(R.id.evPhone)
+        evPassword = view.findViewById(R.id.evPassword)
+        tvForgotPassword = view.findViewById(R.id.tvForgotPassword)
+        btnSignIn = view.findViewById(R.id.btnSignIn)
+        tvCreateAccount = view.findViewById(R.id.tvCreateAccount)
+        loginProgressBar = view.findViewById(R.id.loginProgressBar)
         databaseReference = FirebaseDatabase.getInstance().reference
 
         tvCreateAccount.setOnClickListener {
             (activity as LoginActivity).navigateToFragment(
-                RegisterFragment(),
-                true,
-                REGISTER_FRAGMENT
+                    RegisterFragment(),
+                    true,
+                    REGISTER_FRAGMENT
             )
         }
 
@@ -86,7 +86,7 @@ class LoginFragment : BaseFragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.child("Users").child(phone).exists()) {
                     val userData: User =
-                        snapshot.child("Users").child(phone).getValue(User::class.java)!!
+                            snapshot.child("Users").child(phone).getValue(User::class.java)!!
                     if (userData.phone == phone) {
                         if (userData.password == password) {
                             loginProgressBar.visibility = View.GONE
@@ -101,12 +101,12 @@ class LoginFragment : BaseFragment() {
                         } else {
                             loginProgressBar.visibility = View.GONE
                             Toast.makeText(activity, "Incorrect Password", Toast.LENGTH_SHORT)
-                                .show()
+                                    .show()
                         }
                     }
                 } else {
                     Toast.makeText(activity, "User with $phone does not exists", Toast.LENGTH_SHORT)
-                        .show()
+                            .show()
                     loginProgressBar.visibility = View.GONE
                 }
             }

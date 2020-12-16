@@ -16,24 +16,23 @@ class SplashActivity : BaseActivity() {
 
     override fun initViews() {
         Handler().postDelayed(Runnable {
-            val sp = PreferenceManager.getDefaultSharedPreferences(this@SplashActivity)
+            val sp = PreferenceManager.getDefaultSharedPreferences(this)
             val check = sp.getBoolean("booleanIsChecked", false)
             val onBoardingComplete = sp.getBoolean("onBoardingComplete", false)
+
             if (!onBoardingComplete){
-                val i = Intent(this@SplashActivity, OnBoardingActivity::class.java)
-                startActivity(i)
+                startActivity(Intent(this, OnBoardingActivity::class.java))
                 finish()
             }
             else if (check) {
-                val i = Intent(this@SplashActivity, HomeActivity::class.java)
-                startActivity(i)
+                startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             }
             else {
-                val i = Intent(this@SplashActivity, LoginActivity::class.java)
-                startActivity(i)
+                startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             }
+
         }, 2000)
     }
 
