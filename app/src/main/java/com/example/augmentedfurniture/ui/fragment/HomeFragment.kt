@@ -89,7 +89,7 @@ class HomeFragment : Fragment() {
         val horizontalProductScrollModelList : MutableList<HorizontalProductScrollModel> = ArrayList()
 
         horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.drawable.image,"Brown Leather Sofa","by Trevi Furniture","₹ 17,799/-"))
-        horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.mipmap.custom_error_icon,"Brown Leather Sofa","by Trevi Furniture","₹ 17,799/-"))
+        horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.drawable.image,"Brown Leather Sofa","by Trevi Furniture","₹ 17,799/-"))
         horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.mipmap.red_mail,"Brown Leather Sofa","by Trevi Furniture","₹ 17,799/-"))
         horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.mipmap.green_mail,"Brown Leather Sofa","by Trevi Furniture","₹ 17,799/-"))
         horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.mipmap.home_icon,"Brown Leather Sofa","by Trevi Furniture","₹ 17,799/-"))

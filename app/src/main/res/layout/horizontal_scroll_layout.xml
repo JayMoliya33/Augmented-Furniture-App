@@ -7,8 +7,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:background="@drawable/slider_background"
-    android:elevation="3dp"
-    android:paddingBottom="8dp">
+    android:elevation="@dimen/_3sdp"
+    android:paddingBottom="@dimen/_3sdp">
 
     <!-- Deals of the Day -->
     <TextView
@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Deals of the Day"
+        android:text="Popular Products"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
