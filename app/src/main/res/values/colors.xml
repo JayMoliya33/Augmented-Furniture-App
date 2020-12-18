@@ -7,12 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="orange">#FFA900</color>
 
     <color name="colorPrimary">#FBB034</color>
-    <color name="colorPrimaryDark">#FFDD00</color>
-    <color name="colorAccent">#FBB034</color>
+    <color name="colorPrimaryDark">#FFA900</color>
+    <color name="colorAccent">#FFA900</color>
     <color name="colorText">#504F60</color>
-    <color name="themeColor">#FFDD00</color>
+    <color name="themeColor">#FFA900</color>
 
     <color name="gradient_start_color">#4f84ff</color>
     <color name="gradient_end_color">#18a3fe</color>

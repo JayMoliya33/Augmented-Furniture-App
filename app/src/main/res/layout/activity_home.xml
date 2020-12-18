@@ -64,8 +64,9 @@
         android:layout_gravity="start"
         android:clickable="true"
         android:focusable="true"
+        app:itemTextColor="@color/orange"
         app:headerLayout="@layout/navigation_drawer_header"
-        app:itemIconTint="@color/colorText"
+        app:itemIconTint="@color/orange"
         app:menu="@menu/drawer_items" />
 
 

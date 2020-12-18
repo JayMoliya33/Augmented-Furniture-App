@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
+    android:label="Augmented Furniture"
     app:startDestination="@+id/navHome">
 
     <fragment
         android:id="@+id/navHome"
         android:name="com.example.augmentedfurniture.ui.fragment.HomeFragment"
-        android:label="Home"
+        android:label="@string/augmented_furniture"
         tools:layout="@layout/fragment_home">
 
         <action
@@ -17,8 +18,7 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            />
+            app:popExitAnim="@anim/slide_out_right" />
 
     </fragment>
 
@@ -26,30 +26,30 @@
         android:id="@+id/navSearch"
         android:name="com.example.augmentedfurniture.ui.fragment.SearchFragment"
         android:label="Search"
-        tools:layout="@layout/fragment_search" >
+        tools:layout="@layout/fragment_search">
 
         <action
             android:id="@+id/action_SearchFragment_to_HomeFragment"
+            app:destination="@id/navHome"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:destination="@id/navHome"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/navWishlist"
         android:name="com.example.augmentedfurniture.ui.fragment.WishlistFragment"
         android:label="Wishlist"
-        tools:layout="@layout/fragment_wishlist" >
+        tools:layout="@layout/fragment_wishlist">
 
         <action
             android:id="@+id/action_WishlistFragment_to_HomeFragment"
+            app:destination="@id/navHome"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:destination="@id/navHome"/>
+            app:popExitAnim="@anim/slide_out_right" />
 
     </fragment>
 
