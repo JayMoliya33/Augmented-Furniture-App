@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_8sdp"
+    android:background="@drawable/slider_background"
+    android:elevation="@dimen/_3sdp">
+
+    <TextView
+        android:id="@+id/grid_product_layout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/grid_product_layout_view_all_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/grid_product_layout_view_all_btn" />
+
+    <Button
+        android:id="@+id/grid_product_layout_view_all_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="View All"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- GridProductView -->
+    <GridView
+        android:id="@+id/grid_product_layout_gridView"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_315sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:numColumns="2"
+        android:horizontalSpacing="@dimen/_1sdp"
+        android:verticalSpacing="@dimen/_1sdp"
+        android:background="#d9d9d9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grid_product_layout_view_all_btn">
+
+    </GridView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

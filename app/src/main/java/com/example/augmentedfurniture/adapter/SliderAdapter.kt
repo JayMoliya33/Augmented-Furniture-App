@@ -17,7 +17,7 @@ class SliderAdapter(private val sliderModelList: List<SliderModel>) : PagerAdapt
         val view: View = LayoutInflater.from(container.context).inflate(R.layout.slider_layout, container, false)
 
         val bannerContainer : ConstraintLayout = view.findViewById(R.id.banner_container)
-        bannerContainer.backgroundTintList = ColorStateList.valueOf(Color.parseColor(sliderModelList.get(position).backgroundColor))
+        bannerContainer.backgroundTintList = ColorStateList.valueOf(Color.parseColor(sliderModelList[position].backgroundColor))
 
         val banner : ImageView = view.findViewById(R.id.banner_slide)
         banner.setImageResource(sliderModelList.get(position).banner)
