@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.OnBoardingActivity">
+    tools:context=".ui.activity.OnBoardingActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvSkip"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/screnViewPager"
+        android:id="@+id/screenViewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="@dimen/_4sdp"
@@ -84,4 +84,5 @@
         </com.google.android.material.tabs.TabLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

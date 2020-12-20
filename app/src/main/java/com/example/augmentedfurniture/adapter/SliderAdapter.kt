@@ -14,7 +14,7 @@ import com.example.augmentedfurniture.model.SliderModel
 class SliderAdapter(private val sliderModelList: List<SliderModel>) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val view: View = LayoutInflater.from(container.context).inflate(R.layout.slider_layout, container, false)
+        val view: View = LayoutInflater.from(container.context).inflate(R.layout.slider_layout_item, container, false)
 
         val bannerContainer : ConstraintLayout = view.findViewById(R.id.banner_container)
         bannerContainer.backgroundTintList = ColorStateList.valueOf(Color.parseColor(sliderModelList[position].backgroundColor))

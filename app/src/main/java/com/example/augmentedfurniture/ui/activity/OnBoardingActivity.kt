@@ -7,9 +7,6 @@ import android.preference.PreferenceManager
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.TextView
-import androidx.viewpager.widget.ViewPager
 import com.example.augmentedfurniture.R
 import com.example.augmentedfurniture.adapter.OnBoardingViewPagerAdapter
 import com.example.augmentedfurniture.base.BaseActivity
@@ -83,18 +80,18 @@ class OnBoardingActivity : BaseActivity() {
         )
 
         onBoardingViewPagerAdapter = OnBoardingViewPagerAdapter(this, list)
-        screnViewPager.adapter = onBoardingViewPagerAdapter
+        screenViewPager.adapter = onBoardingViewPagerAdapter
 
-        tab_indicator.setupWithViewPager(screnViewPager)
+        tab_indicator.setupWithViewPager(screenViewPager)
 
     }
 
     override fun setListeners() {
         btnNext.setOnClickListener {
-            position = screnViewPager.currentItem
+            position = screenViewPager.currentItem
             if (position < list.size) {
                 position++
-                screnViewPager.setCurrentItem(position)
+                screenViewPager.setCurrentItem(position)
             }
 
             if (position == list.size - 1) {

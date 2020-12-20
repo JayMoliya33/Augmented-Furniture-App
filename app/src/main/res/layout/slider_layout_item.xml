@@ -9,6 +9,7 @@
     android:elevation="3dp"
     android:padding="8dp">
 
+    <!-- Slider Layout -->
     <ImageView
         android:id="@+id/banner_slide"
         android:layout_width="match_parent"

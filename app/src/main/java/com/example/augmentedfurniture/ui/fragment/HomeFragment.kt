@@ -111,8 +111,6 @@ class HomeFragment : Fragment() {
         homePageModelList.add(HomePageModel(2, horizontalProductScrollModelList, "Popular product"))
         homePageModelList.add(HomePageModel(3, horizontalProductScrollModelList,"DEALS OF THE DAY"))
         homePageModelList.add(HomePageModel(1, R.drawable.s, "#000000"))
-        homePageModelList.add(HomePageModel(3, horizontalProductScrollModelList,"DEALS OF THE DAY"))
-        homePageModelList.add(HomePageModel(2, horizontalProductScrollModelList,"Popular product"))
 
         val adapter = HomePageAdapter(homePageModelList)
         recyclerViewTesting.adapter = adapter
@@ -256,6 +254,7 @@ class HomeFragment : Fragment() {
 
     // setRecyclerView for Different CategoriesItem
     private fun setupRecyclerView() {
+
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         categoryRecyclerView?.layoutManager = layoutManager

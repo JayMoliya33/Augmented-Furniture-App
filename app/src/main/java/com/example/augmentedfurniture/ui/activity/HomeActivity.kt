@@ -37,6 +37,7 @@ class HomeActivity : BaseActivity() {
         NavigationUI.setupWithNavController(navigationView, navController)
     }
 
+    // BottomNavigation and NavDrawer
     override fun onSupportNavigateUp(): Boolean {
 
        return NavigationUI.navigateUp(navController, appBarConfiguration)

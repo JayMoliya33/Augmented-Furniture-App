@@ -4,16 +4,13 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.example.augmentedfurniture.R
 import com.example.augmentedfurniture.model.CategoryModel
+import com.example.augmentedfurniture.ui.activity.CategoryActivity
 import com.example.augmentedfurniture.ui.activity.HomeActivity
 
 class CategoryAdapter(private val categoryModelList: List<CategoryModel>) : RecyclerView.Adapter<CategoryAdapter.MyViewHolder?>() {
@@ -58,15 +55,14 @@ class CategoryAdapter(private val categoryModelList: List<CategoryModel>) : Recy
 
         fun setCategory(name: String) {
             categoryName.text = name
-//            if (name != "") {
-//                itemView.setOnClickListener{
-//                    if (position != 0) {
-//                        val categoryIntent = Intent(itemView.context, HomeActivity::class.java)
-//                        categoryIntent.putExtra("CategoryName", name)
-//                        itemView.context.startActivity(categoryIntent)
-//                    }
-//                }
-//            }
+
+            if (name != "") {
+                itemView.setOnClickListener{
+                        val categoryIntent = Intent(itemView.context, CategoryActivity::class.java)
+                        categoryIntent.putExtra("CategoryName", name)
+                        itemView.context.startActivity(categoryIntent)
+                }
+            }
         }
 
     }

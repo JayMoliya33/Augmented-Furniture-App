@@ -45,4 +45,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontal_scroll_layout_view_all" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
