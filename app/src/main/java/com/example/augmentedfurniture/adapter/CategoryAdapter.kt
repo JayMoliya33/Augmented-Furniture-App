@@ -27,7 +27,7 @@ class CategoryAdapter(private val categoryModelList: List<CategoryModel>) : Recy
         val icon: String = categoryModelList[position].categoryIconLink
         val name: String = categoryModelList[position].categoryName
 
-        viewHolder.setCategory(name)
+        viewHolder.setCategory(name,position)
 
 //        if (lastposition < position) {
 //            val animation: Animation = AnimationUtils.loadAnimation(viewHolder.itemView.context, R.anim.fade_in)
@@ -53,10 +53,11 @@ class CategoryAdapter(private val categoryModelList: List<CategoryModel>) : Recy
 //            }
         }
 
-        fun setCategory(name: String) {
+        fun setCategory(name: String, position: Int) {
             categoryName.text = name
 
             if (name != "") {
+                if(position !=0)
                 itemView.setOnClickListener{
                         val categoryIntent = Intent(itemView.context, CategoryActivity::class.java)
                         categoryIntent.putExtra("CategoryName", name)

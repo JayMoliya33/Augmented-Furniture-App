@@ -7,23 +7,17 @@
     tools:context=".ui.activity.CategoryActivity">
 
     <!-- Toolbar -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <androidx.appcompat.widget.Toolbar
+          <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarCategory"
             android:layout_width="match_parent"
+            app:subtitleTextColor="@color/white"
+            app:titleTextColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/rounded_toolbar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:theme="@style/Widget.AppCompat.PopupMenu.Overflow" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
    <!-- RecyclerView for diff Category -->
     <androidx.recyclerview.widget.RecyclerView
@@ -31,8 +25,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appbarLayout"
+        app:layout_constraintTop_toBottomOf="@id/toolbarCategory"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
