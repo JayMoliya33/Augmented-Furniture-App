@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.augmentedfurniture.R
 import com.example.augmentedfurniture.model.CategoryModel
 import com.example.augmentedfurniture.ui.activity.CategoryActivity
-import com.example.augmentedfurniture.ui.activity.HomeActivity
 
 class CategoryAdapter(private val categoryModelList: List<CategoryModel>) : RecyclerView.Adapter<CategoryAdapter.MyViewHolder?>() {
 

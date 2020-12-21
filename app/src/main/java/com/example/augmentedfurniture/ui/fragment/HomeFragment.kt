@@ -72,8 +72,6 @@ class HomeFragment : Fragment() {
         horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.mipmap.home_icon, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
         horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.mipmap.ic_launcher, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
         horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.drawable.image, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
-        horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.drawable.image, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
-
     }
 
     ////// BANNER slider

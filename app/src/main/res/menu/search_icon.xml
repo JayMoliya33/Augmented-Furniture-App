@@ -6,7 +6,7 @@
         android:id="@+id/searchCategory"
         app:showAsAction="always"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_search_white"
+        android:icon="@mipmap/search"
         android:title="@string/search" />
 
 

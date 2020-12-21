@@ -1,5 +1,6 @@
 package com.example.augmentedfurniture.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import com.example.augmentedfurniture.R
 import com.example.augmentedfurniture.model.HorizontalProductScrollModel
+import com.example.augmentedfurniture.ui.activity.ProductDetailsActivity
 
 class HorizontalProductScrollAdapter(private val horizontalProductScrollModelList: List<HorizontalProductScrollModel>) : RecyclerView.Adapter<HorizontalProductScrollAdapter.MyViewHolder>() {
 
@@ -38,13 +40,21 @@ class HorizontalProductScrollAdapter(private val horizontalProductScrollModelLis
         private val productDescription: TextView = itemView.findViewById(R.id.h_s_product_description)
         private val productPrice: TextView = itemView.findViewById(R.id.h_s_product_price)
 
+
+
         // setData
         fun setData(resource: Int, title: String, description: String, price: String) {
             productImage.setImageResource(resource)
             productTitle.text = title
             productDescription.text = description
             productPrice.text = price
+
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context,ProductDetailsActivity::class.java)
+                itemView.context.startActivity(intent)
+            }
         }
+
     }
 
 }

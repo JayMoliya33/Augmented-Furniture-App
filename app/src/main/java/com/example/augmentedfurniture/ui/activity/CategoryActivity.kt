@@ -62,14 +62,14 @@ class CategoryActivity : AppCompatActivity() {
     ///Horizontal Product Layout
     private fun setHorizontalRecyclerView() {
 
-        horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.drawable.image, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
-        horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.drawable.image, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
+        horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.drawable.images, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
+        horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.drawable.images, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
         horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.mipmap.red_mail, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
         horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.mipmap.green_mail, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
         horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.mipmap.home_icon, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
         horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.mipmap.ic_launcher, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
-        horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.drawable.image, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
-        horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.drawable.image, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
+        horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.drawable.images, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
+        horizontalProductScrollModelList.add(HorizontalProductScrollModel(R.drawable.images, "Brown Leather Sofa", "by Trevi Furniture", "₹ 17,799/-"))
 
     }
 
