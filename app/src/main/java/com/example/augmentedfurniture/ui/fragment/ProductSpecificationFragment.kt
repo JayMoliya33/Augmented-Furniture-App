@@ -28,14 +28,18 @@ class ProductSpecificationFragment : Fragment() {
         productSpecificationRecyclerView?.layoutManager = linearLayoutManager
 
         val productSpecificationModelList : MutableList<ProductSpecificationModel> = ArrayList()
-        productSpecificationModelList.add(ProductSpecificationModel("RAM","4GB"))
-        productSpecificationModelList.add(ProductSpecificationModel("RAM","4GB"))
-        productSpecificationModelList.add(ProductSpecificationModel("RAM","4GB"))
-        productSpecificationModelList.add(ProductSpecificationModel("RAM","4GB"))
-        productSpecificationModelList.add(ProductSpecificationModel("RAM","4GB"))
-        productSpecificationModelList.add(ProductSpecificationModel("RAM","4GB"))
-        productSpecificationModelList.add(ProductSpecificationModel("RAM","4GB"))
-        productSpecificationModelList.add(ProductSpecificationModel("RAM","4GB"))
+        productSpecificationModelList.add(ProductSpecificationModel(0,"General"))
+        productSpecificationModelList.add(ProductSpecificationModel(1,"RAM","4GB"))
+        productSpecificationModelList.add(ProductSpecificationModel(1,"RAM","4GB"))
+        productSpecificationModelList.add(ProductSpecificationModel(1,"RAM","4GB"))
+        productSpecificationModelList.add(ProductSpecificationModel(1,"RAM","4GB"))
+        productSpecificationModelList.add(ProductSpecificationModel(1,"RAM","4GB"))
+        productSpecificationModelList.add(ProductSpecificationModel(1,"Dimension"))
+        productSpecificationModelList.add(ProductSpecificationModel(1,"RAM","4GB"))
+        productSpecificationModelList.add(ProductSpecificationModel(1,"RAM","4GB"))
+        productSpecificationModelList.add(ProductSpecificationModel(1,"RAM","4GB"))
+        productSpecificationModelList.add(ProductSpecificationModel(1,"RAM","4GB"))
+        productSpecificationModelList.add(ProductSpecificationModel(1,"RAM","4GB"))
 
         val productSpecificationAdapter = ProductSpecificationAdapter(productSpecificationModelList)
         productSpecificationRecyclerView?.adapter = productSpecificationAdapter
