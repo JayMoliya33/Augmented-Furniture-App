@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.augmentedfurniture.R
 import com.example.augmentedfurniture.model.HorizontalProductScrollModel
+import com.example.augmentedfurniture.ui.activity.ProductDetailsActivity
 
 class GridProductLayoutAdapter(private val horizontalProductScrollModelList: List<HorizontalProductScrollModel>) : BaseAdapter() {
 
@@ -32,6 +33,12 @@ class GridProductLayoutAdapter(private val horizontalProductScrollModelList: Lis
             view = LayoutInflater.from(parent.context).inflate(R.layout.horizontal_scroll_item_layout, null)
             view.elevation = 0.0f
             view.setBackgroundColor(Color.parseColor("#ffffff"))
+
+            // onclick listener for Grid Products
+            view.setOnClickListener {
+                val productDetailsIntent = Intent(parent.context,ProductDetailsActivity::class.java)
+                parent.context.startActivity(productDetailsIntent)
+            }
 
             val productImages : ImageView = view.findViewById(R.id.h_s_product_image)
             val productTitle: TextView = view.findViewById(R.id.h_s_product_title)

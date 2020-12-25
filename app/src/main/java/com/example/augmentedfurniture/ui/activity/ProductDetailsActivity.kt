@@ -2,10 +2,13 @@ package com.example.augmentedfurniture.ui.activity
 
 import android.content.res.ColorStateList
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.augmentedfurniture.R
 import com.example.augmentedfurniture.adapter.ProductDetailsAdapter
@@ -25,6 +28,16 @@ class ProductDetailsActivity : AppCompatActivity() {
     private lateinit var productDetailsViewPager: ViewPager
     private lateinit var productDetailsTabLayout: TabLayout
 
+
+    //// RATINGS LAYOUT
+    lateinit var rateNowContainer: LinearLayout
+    private val totalRatings: TextView? = null
+    private val ratingsNoContainer: LinearLayout? = null
+    private val ratingsProgressBarContainer: LinearLayout? = null
+    private val totalRatingsFig: TextView? = null
+
+    //// RATINGS LAYOUT
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_details)
@@ -33,6 +46,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Product Details"
+        supportActionBar?.setDisplayShowTitleEnabled(true)
 
         productImagesViewPager = findViewById(R.id.product_images_viewpager)
         viewPageIndicator = findViewById(R.id.viewPager_indicator)
@@ -52,7 +66,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         productImagesViewPager.adapter = productImagesAdapter
 
         // setViewPager
-        viewPageIndicator.setupWithViewPager(productImagesViewPager,true)
+        viewPageIndicator.setupWithViewPager(productImagesViewPager, true)
 
         // click on AddtoWishlist button
         addToWishlistButton.setOnClickListener {
@@ -68,13 +82,19 @@ class ProductDetailsActivity : AppCompatActivity() {
         }
 
         // Product Details
-        productDetailsViewPager.adapter = ProductDetailsAdapter(supportFragmentManager,productDetailsTabLayout.tabCount)
+        productDetailsViewPager.adapter = ProductDetailsAdapter(
+            supportFragmentManager,
+            productDetailsTabLayout.tabCount
+        )
 
-        productDetailsViewPager.addOnPageChangeListener(object : TabLayout.TabLayoutOnPageChangeListener(productDetailsTabLayout){})
-        productDetailsTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+        productDetailsViewPager.addOnPageChangeListener(object :
+            TabLayout.TabLayoutOnPageChangeListener(
+                productDetailsTabLayout
+            ) {})
+        productDetailsTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
-               // tab?.position?.let { productDetailsViewPager.currentItem = it }
+                // tab?.position?.let { productDetailsViewPager.currentItem = it }
                 productDetailsViewPager.currentItem = tab?.position!!
             }
 
@@ -85,11 +105,21 @@ class ProductDetailsActivity : AppCompatActivity() {
             }
         })
 
+        // Rating Layout
+        rateNowContainer = findViewById(R.id.rate_now_container)
+
+        // onclick Listener for Diff stars
+        for (i in 0 until rateNowContainer.childCount) {
+            rateNowContainer.getChildAt(i).setOnClickListener {
+                setRating(i)
+            }
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         // Inflate Menu
-        menuInflater.inflate(R.menu.search_and_cart_icon,menu)
+        menuInflater.inflate(R.menu.search_and_cart_icon, menu)
         return true
     }
 
@@ -112,4 +142,22 @@ class ProductDetailsActivity : AppCompatActivity() {
             else -> return super.onOptionsItemSelected(item)
         }
     }
+
+    ////// RATINGS LAYOUT
+    private fun setRating(starPosition: Int) {
+
+        for (x in 0 until rateNowContainer.childCount) {
+
+            val starBtn = rateNowContainer.getChildAt(x) as ImageView
+
+            starBtn.imageTintList = ColorStateList.valueOf(Color.parseColor("#bebebe"))
+            if (x <= starPosition) {
+                // set color of star to yellow
+                starBtn.imageTintList = ColorStateList.valueOf(Color.parseColor("#ffbb00"))
+            }
+
+        }
+
+    }
+    ///// RATINGS LAYOUT
 }

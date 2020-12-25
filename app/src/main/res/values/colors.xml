@@ -10,6 +10,7 @@
     <color name="orange">#FFA900</color>
     <color name="successGreen">#11A10C</color>
     <color name="red">#ff0000</color>
+    <color name="recyclerviewBackground">#d6d6d6</color>
 
     <color name="colorPrimary">#FBB034</color>
     <color name="colorPrimaryDark">#FFA900</color>

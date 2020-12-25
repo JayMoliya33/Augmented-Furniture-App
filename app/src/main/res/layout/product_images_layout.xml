@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="@drawable/slider_background"
     android:padding="@dimen/_5sdp"
     android:elevation="3dp">
 
@@ -190,7 +190,7 @@
             android:background="@drawable/border_background"
             android:gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
-            android:text="Reedem"
+            android:text="Redeem"
             android:textColor="@color/white"
             android:textSize="12sp" />
     </LinearLayout> -->

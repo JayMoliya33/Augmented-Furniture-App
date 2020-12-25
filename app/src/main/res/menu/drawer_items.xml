@@ -2,6 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
 
+        <!--Each item id should be same as in the nav_graph fragment id-->
+
         <item
             android:id="@+id/navHome"
             android:icon="@drawable/ic_home"
@@ -21,6 +23,16 @@
             android:id="@+id/navMyProfile"
             android:icon="@drawable/ic_baseline_person"
             android:title="@string/profile" />
+
+        <item
+            android:id="@+id/navMyCart"
+            android:icon="@mipmap/cart_black"
+            android:title="MyCart" />
+
+        <item
+            android:id="@+id/navMyOrders"
+            android:icon="@mipmap/my_orders"
+            android:title="MyOrders" />
 
         <item
             android:id="@+id/navLogout"

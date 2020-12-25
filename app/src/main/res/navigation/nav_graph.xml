@@ -68,4 +68,36 @@
             app:popExitAnim="@anim/slide_out_right" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/navMyCart"
+        android:name="com.example.augmentedfurniture.ui.fragment.MyCartFragment"
+        android:label="MyCart"
+        tools:layout="@layout/fragment_my_cart">
+
+        <action
+            android:id="@+id/action_MyCartFragment_to_HomeFragment"
+            app:destination="@id/navHome"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/navMyOrders"
+        android:name="com.example.augmentedfurniture.ui.fragment.MyOrdersFragment"
+        android:label="My Orders"
+        tools:layout="@layout/fragment_my_orders" >
+
+        <action
+            android:id="@+id/action_MyOrdersFragment_to_HomeFragment"
+            app:destination="@id/navHome"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
 </navigation>
